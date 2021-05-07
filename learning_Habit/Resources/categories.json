@@ -1,0 +1,27 @@
+[
+    {
+        "categoryName": "Relaxation",
+        "id": 1001,
+        "imageName": "relaxation"
+    },
+    {
+        "categoryName": "Reading",
+        "id": 1002,
+        "imageName": "reading"
+    },
+    {
+        "categoryName": "Learning",
+        "id": 1003,
+        "imageName": "learning"
+    },
+    {
+        "categoryName": "Physical Health",
+        "id": 1004,
+        "imageName": "health"
+    },
+    {
+        "categoryName": "Organization",
+        "id": 1005,
+        "imageName": "organize"
+    },
+]

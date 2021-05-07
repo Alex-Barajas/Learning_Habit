@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "D6229982-4069-49F5-BD58-80EF8698C46A"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "15B27D17-8146-4C12-A7B3-8B986209621B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "learning_Habit/views/CategoryViews/DetailedView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "15B27D17-8146-4C12-A7B3-8B986209621B - 99062561f4d3df2e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;learning_Habit.Activity_Entry&gt;, Swift.Optional&lt;Foundation.UUID&gt;, SwiftUI.Text&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.TextField&lt;SwiftUI.Text&gt;, Swift.Optional&lt;SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;&gt;)&gt;&gt;, SwiftUI.EmptyView&gt;, SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.ForEach&lt;Swift.Array&lt;learning_Habit.Activity_Entry&gt;, Swift.Optional&lt;Foundation.UUID&gt;, SwiftUI.Text&gt;, SwiftUI.EmptyView&gt;)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarItems&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(trailing: &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in learning_Habit.DetailedView.body.getter : some"
+                  moduleName = "learning_Habit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tank/Desktop/learning_Habit/learning_Habit/views/CategoryViews/DetailedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "126">
+               </Location>
+               <Location
+                  uuid = "15B27D17-8146-4C12-A7B3-8B986209621B - e207d159f0b0bbeb"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (learning_Habit.Activity_Entry) -&gt; SwiftUI.Text in closure #2 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;learning_Habit.Activity_Entry&gt;, Swift.Optional&lt;Foundation.UUID&gt;, SwiftUI.Text&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.TextField&lt;SwiftUI.Text&gt;, Swift.Optional&lt;SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;&gt;)&gt;&gt;, SwiftUI.EmptyView&gt;, SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.ForEach&lt;Swift.Array&lt;learning_Habit.Activity_Entry&gt;, Swift.Optional&lt;Foundation.UUID&gt;, SwiftUI.Text&gt;, SwiftUI.EmptyView&gt;)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarItems&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(trailing: &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in learning_Habit.DetailedView.body.getter : some"
+                  moduleName = "learning_Habit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tank/Desktop/learning_Habit/learning_Habit/views/CategoryViews/DetailedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "137">
+               </Location>
+               <Location
+                  uuid = "15B27D17-8146-4C12-A7B3-8B986209621B - e207d159f0b0ba91"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (learning_Habit.Activity_Entry) -&gt; SwiftUI.Text in closure #2 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;learning_Habit.Activity_Entry&gt;, Swift.Optional&lt;Foundation.UUID&gt;, SwiftUI.Text&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.TextField&lt;SwiftUI.Text&gt;, Swift.Optional&lt;SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;&gt;)&gt;&gt;, SwiftUI.EmptyView&gt;, SwiftUI.Section&lt;SwiftUI.Text, SwiftUI.ForEach&lt;Swift.Array&lt;learning_Habit.Activity_Entry&gt;, Swift.Optional&lt;Foundation.UUID&gt;, SwiftUI.Text&gt;, SwiftUI.EmptyView&gt;)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarItems&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(trailing: &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in learning_Habit.DetailedView.body.getter : some"
+                  moduleName = "learning_Habit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tank/Desktop/learning_Habit/learning_Habit/views/CategoryViews/DetailedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "677">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ADF64C79-89E2-4542-831E-1359B79358DC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "learning_Habit/views/CategoryViews/DetailedView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "fetchRecentEntries()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A7424441-B6F1-4CD7-9CA6-C15F5E37A1D7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "learning_Habit/views/CategoryViews/DetailedView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
