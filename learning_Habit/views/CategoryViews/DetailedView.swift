@@ -14,20 +14,16 @@ struct DetailedView: View {
     
     @State var selectedTask: Activity_Entry? = nil
     @State var savedText: String = ""
+    @State var newState: String = ""
     var category: Categories
-    var entries:[Activity_Entry] = []
-    
+    @State var entries:[Activity_Entry] = []
     init(category: Categories){
         self.category = category
-        self.entries = fetchRecentEntries()
+        print("look here")
+        fetchRecentEntries()
     }
     
     var body: some View {
-//        do {
-//        try self.managedObjectContext.save()
-//            entries = fetchRecentEntries()
-//        }
-//        catch{}
         return NavigationView{
             List{
                 /*CircleImage(image: category.image)
@@ -42,7 +38,10 @@ struct DetailedView: View {
                             Button(action: {
                                 HabitModel.create(self.savedText, category: self.category.categoryName, using: self.managedObjectContext)
                                 self.savedText = ""
-                               // self.entries = fetchRecentEntries()
+                                newState = savedText
+                                // define a state
+                                print("FRE in button called")
+                                fetchRecentEntries()
                             })
                             {
                                 Text("+")
@@ -82,17 +81,20 @@ struct DetailedView: View {
         }
     }
     
-    mutating func fetchRecentEntries()-> [Activity_Entry]{
+    func fetchRecentEntries(){
         do {
             let request = Activity_Entry.fetchRequest() as NSFetchRequest<Activity_Entry>
             let predicate = NSPredicate(format: "category CONTAINS %@", category.categoryName)
             request.predicate = predicate
-            entries = try context.fetch(request)
+            self.entries = try context.fetch(request)
         }
         catch{
             fatalError(error.localizedDescription)
         }
-    return entries
+    print("print entries from FRE")
+    print(entries)
+    newState = ""
+   // return entries
     }
 }
     
