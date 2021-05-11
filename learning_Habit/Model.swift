@@ -15,6 +15,7 @@ struct HabitModel{
         let newcategory = Activity_Entry(context: managedObjectContext)
         newcategory.activity_description = description
         newcategory.category = category
+       // let test = Date()
         newcategory.date_added = Date()
         newcategory.id = UUID()
         saveChanges(using: managedObjectContext)
@@ -27,7 +28,9 @@ struct HabitModel{
 
 static func saveChanges(using managedObjectContext: NSManagedObjectContext) {
     guard managedObjectContext.hasChanges else { return }
+    
     do {
+        print("print statement in saveChanges")
         try managedObjectContext.save()
     } catch {
         fatalError(error.localizedDescription)
