@@ -12,24 +12,26 @@ struct DetailedView: View {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     @Environment(\.managedObjectContext) var managedObjectContext
     
+    @FetchRequest(fetchRequest: Activity_Entry.fetchAll()) var entries: FetchedResults<Activity_Entry>
+    
+    
     @State var selectedTask: Activity_Entry? = nil
     @State var savedText: String = ""
     @State var newState: String = ""
     var category: Categories
-    @State var entries:[Activity_Entry] = []
-    init(category: Categories){
-        self.category = category
-        print("look here")
-        fetchRecentEntries()
-    }
+    
     
     var body: some View {
+        
+        let predicate = NSPredicate(format: "category CONTAINS %@", category.categoryName)
+        let request = NSFetchRequest<Activity_Entry>(entityName: "Activity_Entry")
+        request.predicate = predicate
+        request.sortDescriptors = [NSSortDescriptor(key: "category", ascending: true)]
+        
         return NavigationView{
+            
+            
             List{
-                /*CircleImage(image: category.image)
-                 .offset(x:130.0, y: -10.0)
-                 .padding(.bottom, -50)
-                 */
                 Section(header: Text("New Entry")){
                     HStack{
                         TextField("Description...", text: $savedText)
@@ -39,9 +41,7 @@ struct DetailedView: View {
                                 HabitModel.create(self.savedText, category: self.category.categoryName, using: self.managedObjectContext)
                                 self.savedText = ""
                                 newState = savedText
-                                // define a state
                                 print("FRE in button called")
-                                fetchRecentEntries()
                             })
                             {
                                 Text("+")
@@ -57,20 +57,7 @@ struct DetailedView: View {
                         
                     }
                 }
-                
-                Section(header: Text("Past Entries")) {
-                    ForEach(entries, id: \.id) { entry in
-                        Button(action: {
-                            self.selectedTask = entry
-                        }) {
-                            TaskCell(entry: entry)
-                        }
-//                        let description:String = entry.activity_description ?? " "
-//                        Text(description)
-                        
-                    }
-                   // .onDelete(perform: deleteTasks(at:))
-                }
+                prevItemView(list: FetchRequest(fetchRequest: request))
                 
             }
             
@@ -81,29 +68,22 @@ struct DetailedView: View {
         }
     }
     
-    func fetchRecentEntries(){
-        do {
-            let request = Activity_Entry.fetchRequest() as NSFetchRequest<Activity_Entry>
-            let predicate = NSPredicate(format: "category CONTAINS %@", category.categoryName)
-            request.predicate = predicate
-            self.entries = try context.fetch(request)
+}
+
+struct prevItemView: View {
+    @FetchRequest var list: FetchedResults<Activity_Entry>
+    var body: some View {
+        Section(header: Text("Past Entries")) {
+            ForEach(list, id: \.id) { entry in
+                let temp = (entry.activity_description ?? "Error") as String
+                Text(temp)
+                
+            }
         }
-        catch{
-            fatalError(error.localizedDescription)
-        }
-    print("print entries from FRE")
-    print(entries)
-    newState = ""
-   // return entries
+        
+        
     }
 }
-    
-    
-//    func deleteTasks(at indexSet: IndexSet) {
-//        indexSet.forEach { HabitModel.delete(goals: tasks[$0], using: self.managedObjectContext) }
-//    }
-    
-
 
 struct DetailedView_Previews: PreviewProvider {
     static var previews: some View {
@@ -111,4 +91,32 @@ struct DetailedView_Previews: PreviewProvider {
             .environment(\.managedObjectContext, HabitViewModel().managedObjectContext)
     }
 }
+
+
+
+
+
+
+
+//    func fetchRecentEntries(){
+//        do {
+//            let request = Activity_Entry.fetchRequest() as NSFetchRequest<Activity_Entry>
+//            let predicate = NSPredicate(format: "category CONTAINS %@", category.categoryName)
+//            request.predicate = predicate
+//            self.entries = try context.fetch(request)
+//        }
+//        catch{
+//            fatalError(error.localizedDescription)
+//        }
+//    print("print entries from FRE")
+//    print(entries)
+//    newState = ""
+//   // return entries
+//    }
+//}
+
+
+//    func deleteTasks(at indexSet: IndexSet) {
+//        indexSet.forEach { HabitModel.delete(goals: tasks[$0], using: self.managedObjectContext) }
+//    }
 
