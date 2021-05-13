@@ -21,8 +21,7 @@ struct GraphViewWeek: View {
         ZStack(alignment: .bottomLeading){
             graphBackground()
             drawBars()
-               // .frame(alignment: .leading)
-
+            
         }
     }
     
@@ -48,25 +47,19 @@ struct GraphViewWeek: View {
     }
     
     mutating func initalizeDates(){
-        var temp: [[Date?]] = []
+        var datePairsArray: [[Date?]] = []
         for index in stride(from: -1, through: -7, by: -1) {
-           // print("week Index \(index)")
             let toDateTemp = Date()
-            
             var dateComponent = DateComponents()
             dateComponent.day = index
-            //dateComponent.hour = 12
             let fromDate = Calendar.current.date(byAdding: dateComponent, to: toDateTemp)
-            
             var dateComponent_1 = DateComponents()
             dateComponent_1.day = index + 1
-            //dateComponent.hour = 12
             let toDate = Calendar.current.date(byAdding: dateComponent_1, to: toDateTemp)
-            
-            let temp1:[Date?] = [fromDate, toDate]
-            temp.append(temp1)
+            let pairs:[Date?] = [fromDate, toDate]
+            datePairsArray.append(pairs)
         }
-        self.datePairs = temp
+        self.datePairs = datePairsArray
     }
     
     struct barView: View{
@@ -96,14 +89,14 @@ struct GraphViewWeek: View {
         }
     }
     
-
+    
     struct buildBar: View {
         @FetchRequest var list: FetchedResults<Activity_Entry>
         var dayOfTheWeek: String
         var body: some View {
             VStack(){
-                let temp = list.count > 0 ? "\(list.count) / 5 " : " "
-                Text(temp)
+                let scoreOutOf = list.count > 0 ? "\(list.count) / 5 " : " "
+                Text(scoreOutOf)
                     .font(.subheadline)
                 VStack(alignment: .trailing, spacing: 0){
                     ForEach(list, id: \.id) { entry in
@@ -111,12 +104,12 @@ struct GraphViewWeek: View {
                             .fill( grabColor(category: entry))
                             .frame(width: 20, height: 20, alignment: .center)
                     }
-        
+                    
                 }
-            Text(dayOfTheWeek)
-                .frame(alignment: .bottomLeading)
-                .font(.custom("test", size: 10.0))
-                .opacity(list.count > 0 ? 1.0 : 0.0)
+                Text(dayOfTheWeek)
+                    .frame(alignment: .bottomLeading)
+                    .font(.custom("test", size: 10.0))
+                    .opacity(list.count > 0 ? 1.0 : 0.0)
             }
         }
         
@@ -144,8 +137,6 @@ struct GraphViewWeek: View {
     }
     
 }
-
-
 
 struct GraphViewWeek_Preview: PreviewProvider {
     static var previews: some View {

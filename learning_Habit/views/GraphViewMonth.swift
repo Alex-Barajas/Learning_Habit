@@ -47,24 +47,20 @@ struct GraphViewMonth: View {
     }
     
     mutating func initalizeDates(){
-        var temp: [[Date?]] = []
+        var datePairsArray: [[Date?]] = []
         for index in stride(from: -7, through: -28, by: -7) {
-            print("Month Index \(index)")
             let toDateTemp = Date()
             var dateComponent = DateComponents()
             dateComponent.day = index
             let fromDate = Calendar.current.date(byAdding: dateComponent, to: toDateTemp)
-            
             var dateComponent_1 = DateComponents()
             dateComponent_1.day = index + 7
-            //dateComponent.hour = 12
             let toDate = Calendar.current.date(byAdding: dateComponent_1, to: toDateTemp)
+            let pairs:[Date?] = [fromDate, toDate]
+            datePairsArray.append(pairs)
             
-            let temp1:[Date?] = [fromDate, toDate]
-            temp.append(temp1)
-   
         }
-        self.datePairs = temp
+        self.datePairs = datePairsArray
     }
     
 }
@@ -74,7 +70,7 @@ struct barView: View{
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: Activity_Entry.fetchAll()) var entriesRe: FetchedResults<Activity_Entry>
     var day: [Date?]
-
+    
     var body: some View{
         let request = Activity_Entry.fetchRequest() as NSFetchRequest<Activity_Entry>
         let predicate = NSPredicate(format: "%@ <= date_added AND date_added <= %@", day[0]! as NSDate, day[1]! as NSDate)
@@ -83,8 +79,6 @@ struct barView: View{
         let weekOfTheMonth = getDate(day: day[1])
         return VStack{
             buildBar(list: FetchRequest(fetchRequest: request), weekOfTheMonth: weekOfTheMonth)
-//            Text("\(getDate(day: day[1]))")
-//                .font(.footnote)
         }
     }
     
@@ -97,16 +91,13 @@ struct barView: View{
 }
 
 
-
-
 struct buildBar: View {
     @FetchRequest var list: FetchedResults<Activity_Entry>
     let weekOfTheMonth: String
     var body: some View {
         VStack{
-            let temp = list.count > 0 ? "\(list.count) / 35 " : " "
-            let size = list.count
-            Text(temp)
+            let scoreOutOf = list.count > 0 ? "\(list.count) / 35 " : " "
+            Text(scoreOutOf)
                 .font(.subheadline)
             let yValue = (Float(list.count) / 35) * 100
             VStack(alignment: .trailing, spacing: 0){
