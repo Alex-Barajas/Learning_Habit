@@ -29,14 +29,17 @@ struct DetailedView: View {
         request.sortDescriptors = [NSSortDescriptor(key: "category", ascending: true)]
         
         return NavigationView{
-            
-            
+            VStack{
+                 category.image
+                        .position(x: 200, y: -40)
+                        .frame(width: 120, height: 50)
             List{
                 Section(header: Text("New Entry")){
+                    
                     HStack{
                         TextField("Description...", text: $savedText)
                         
-                        if self.savedText.count >= 0 {
+                        if self.savedText.count > 0 {
                             Button(action: {
                                 HabitModel.create(self.savedText, category: self.category.categoryName, using: self.managedObjectContext)
                                 self.savedText = ""
@@ -64,13 +67,18 @@ struct DetailedView: View {
             .listStyle(GroupedListStyle())
             .navigationBarTitle(Text(category.categoryName))
             .navigationBarItems(trailing: EditButton())
-            
+           
+            }
+            .padding(.top)
         }
     }
     
+    
+
 }
 
 struct prevItemView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest var list: FetchedResults<Activity_Entry>
     var body: some View {
         Section(header: Text("Past Entries")) {
@@ -79,10 +87,14 @@ struct prevItemView: View {
                 Text(temp)
                 
             }
+            .onDelete(perform: deleteTasks(at:))
         }
         
         
     }
+    func deleteTasks(at indexSet: IndexSet) {
+          indexSet.forEach { HabitModel.delete(goals: list[$0], using: self.managedObjectContext) }
+      }
 }
 
 struct DetailedView_Previews: PreviewProvider {
@@ -98,25 +110,6 @@ struct DetailedView_Previews: PreviewProvider {
 
 
 
-//    func fetchRecentEntries(){
-//        do {
-//            let request = Activity_Entry.fetchRequest() as NSFetchRequest<Activity_Entry>
-//            let predicate = NSPredicate(format: "category CONTAINS %@", category.categoryName)
-//            request.predicate = predicate
-//            self.entries = try context.fetch(request)
-//        }
-//        catch{
-//            fatalError(error.localizedDescription)
-//        }
-//    print("print entries from FRE")
-//    print(entries)
-//    newState = ""
-//   // return entries
-//    }
-//}
 
 
-//    func deleteTasks(at indexSet: IndexSet) {
-//        indexSet.forEach { HabitModel.delete(goals: tasks[$0], using: self.managedObjectContext) }
-//    }
 
