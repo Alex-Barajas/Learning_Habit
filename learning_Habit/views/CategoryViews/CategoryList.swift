@@ -13,8 +13,6 @@ struct CategoryList: View {
             body(geometry)
         }
     }
-    
-    
     func body(_ geometry: GeometryProxy) -> some View {
         print(geometry.size)
         let chartArea = geometry.size.height * 0.20

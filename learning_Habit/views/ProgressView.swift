@@ -9,18 +9,7 @@ import SwiftUI
 import CoreData
 
 struct ProgressView: View {
-    
-    //    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    //    @Environment(\.managedObjectContext) var managedObjectContext
-    //
-    
-    
-    
-    //var entries:[Activity_Entry] = []
-   // var week: [Day] = []
-    
-   // let viewModel = HabitViewModel()
-    
+
     var body: some View {
         GeometryReader { geometry in
             body(geometry)
