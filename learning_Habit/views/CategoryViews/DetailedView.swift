@@ -11,10 +11,7 @@ struct DetailedView: View {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     @Environment(\.managedObjectContext) var managedObjectContext
-    
     @FetchRequest(fetchRequest: Activity_Entry.fetchAll()) var entries: FetchedResults<Activity_Entry>
-    
-    
     @State var selectedTask: Activity_Entry? = nil
     @State var savedText: String = ""
     @State var newState: String = ""
@@ -44,7 +41,6 @@ struct DetailedView: View {
                                 HabitModel.create(self.savedText, category: self.category.categoryName, using: self.managedObjectContext)
                                 self.savedText = ""
                                 newState = savedText
-                                print("FRE in button called")
                             })
                             {
                                 Text("+")
@@ -57,7 +53,6 @@ struct DetailedView: View {
                                     .padding(.all)
                             }
                         }
-                        
                     }
                 }
                 prevItemView(list: FetchRequest(fetchRequest: request))
