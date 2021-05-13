@@ -2,7 +2,8 @@
 //  ContentView.swift
 //  learning_Habit
 //
-//  Created by Alex Barajas on 5/4/21.
+//  Alexander Barajas-Ritchie & Austin Escalante
+//  May 12th, 2021
 //
 
 import SwiftUI

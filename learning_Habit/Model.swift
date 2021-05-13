@@ -9,13 +9,12 @@ import Foundation
 import CoreData
 
 struct HabitModel{
-    //var streaks: [Int] = []
+
     
     public static func create(_ description:String, category: String, using managedObjectContext: NSManagedObjectContext){
         let newcategory = Activity_Entry(context: managedObjectContext)
         newcategory.activity_description = description
         newcategory.category = category
-       // let test = Date()
         newcategory.date_added = Date()
         newcategory.id = UUID()
         saveChanges(using: managedObjectContext)
@@ -51,20 +50,5 @@ struct Week: Identifiable{
     let id = UUID()
 }
 
-enum category {
-    case Relaxation(representing: String)
-    case Reading(representing: String)
-    case Learning(representing: String)
-    case Physical_Health(representing: String)
-    case Organization(representing: String)
-}
-
-struct entry{
-    var date: Date
-    var activity: String
-    var description: String
-    var category: category
-    
-}
 
 
