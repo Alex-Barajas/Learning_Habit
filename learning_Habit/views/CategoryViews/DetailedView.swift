@@ -28,7 +28,7 @@ struct DetailedView: View {
         return NavigationView{
             VStack{
                  category.image
-                        .position(x: 200, y: -40)
+                        .position(x: 200, y: -28)
                         .frame(width: 120, height: 50)
             List{
                 Section(header: Text("New Entry")){
@@ -77,14 +77,17 @@ struct prevItemView: View {
     @FetchRequest var list: FetchedResults<Activity_Entry>
     var body: some View {
         Section(header: Text("Past Entries")) {
+            
             ForEach(list, id: \.id) { entry in
-                let description = (entry.activity_description ?? "Error") as String
-                Text(description)
-                
+                ScrollView(.vertical){
+                let temp = (entry.activity_description ?? "Error") as String
+                Text(temp)
+                }
             }
             .onDelete(perform: deleteTasks(at:))
+            
+            
         }
-        
         
     }
     func deleteTasks(at indexSet: IndexSet) {
