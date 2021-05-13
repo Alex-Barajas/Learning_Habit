@@ -25,6 +25,7 @@ struct HabitModel{
         managedObjectContext.delete(goals)
         saveChanges(using: managedObjectContext)
     }
+    
 
 static func saveChanges(using managedObjectContext: NSManagedObjectContext) {
     guard managedObjectContext.hasChanges else { return }
